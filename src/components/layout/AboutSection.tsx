@@ -1,8 +1,9 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 
 export default async function AboutSection({ artistCount, artworkCount, locale }: { artistCount: number, artworkCount: number, locale: Locale }) {
+  setRequestLocale(locale)
   const t = await getTranslations('home')
   const tui = await getTranslations('ui')
 
