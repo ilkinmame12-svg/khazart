@@ -5,36 +5,24 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import type { Metadata } from 'next'
 
-interface LocaleLayoutProps {
-  children: React.ReactNode
-  params: { locale: string }
-}
+interface Props { children: React.ReactNode; params: { locale: string } }
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }))
+  return locales.map(locale => ({ locale }))
 }
 
-export async function generateMetadata({
-  params: { locale },
-}: LocaleLayoutProps): Promise<Metadata> {
+export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'home' })
-  return {
-    title: 'KHazar Arts — Curated International Art',
-    description: t('hero_subline'),
-  }
+  return { title: 'KHazar Arts — Curated International Art', description: t('hero_subline') }
 }
 
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: LocaleLayoutProps) {
+export default async function LocaleLayout({ children, params: { locale } }: Props) {
   const messages = await getMessages()
-
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className="min-h-screen flex flex-col bg-linen">
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header locale={locale as Locale} />
-        <main className="flex-1">{children}</main>
+        <main style={{ flex: 1 }}>{children}</main>
         <Footer />
       </div>
     </NextIntlClientProvider>
