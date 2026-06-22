@@ -2,23 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link, usePathname, useRouter } from '@/i18n/navigation'
-import { Search, Globe, Heart, Menu, X } from 'lucide-react'
+import { Link, usePathname } from '@/i18n/navigation'
+import { Search, Heart, Menu, X } from 'lucide-react'
 import type { Locale } from '@/i18n/routing'
-
-const LANGS: { code: Locale; native: string; label: string }[] = [
-  { code: 'en', native: 'EN', label: 'English' },
-  { code: 'az', native: 'AZ', label: 'Azərbaycan' },
-  { code: 'ru', native: 'RU', label: 'Русский' },
-  { code: 'fr', native: 'FR', label: 'Français' },
-]
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header({ locale }: { locale: Locale }) {
   const t = useTranslations('nav')
   const pathname = usePathname()
-  const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
-  const [langOpen, setLangOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
@@ -26,12 +18,6 @@ export default function Header({ locale }: { locale: Locale }) {
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
-
-  const switchLocale = (code: Locale) => {
-    router.replace(pathname, { locale: code })
-    setLangOpen(false)
-    setMobileOpen(false)
-  }
 
   const nav = [
     { href: '/marketplace' as const, label: t('catalog') },
@@ -72,8 +58,8 @@ export default function Header({ locale }: { locale: Locale }) {
                 textDecoration: 'none', padding: '0.45rem 0.875rem',
                 borderRadius: 'var(--radius-full)',
                 fontSize: '0.8125rem', fontWeight: 500,
-                color: pathname === href || pathname.startsWith(href) ? 'var(--ink)' : 'var(--muted)',
-                background: pathname === href || pathname.startsWith(href) ? 'rgba(15,15,14,0.07)' : 'transparent',
+                color: pathname === href ? 'var(--ink)' : 'var(--muted)',
+                background: pathname === href ? 'rgba(15,15,14,0.07)' : 'transparent',
                 transition: 'all 0.15s ease',
               }}>
                 {label}
@@ -81,10 +67,8 @@ export default function Header({ locale }: { locale: Locale }) {
             ))}
           </nav>
 
-          {/* Right actions */}
+          {/* Right */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="hidden md:flex">
-
-            {/* Search */}
             <button style={{
               display: 'flex', alignItems: 'center', gap: 8,
               padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)',
@@ -96,47 +80,7 @@ export default function Header({ locale }: { locale: Locale }) {
               Search artworks
             </button>
 
-            {/* Lang switcher */}
-            <div style={{ position: 'relative' }}>
-              <button onClick={() => setLangOpen(!langOpen)} style={{
-                display: 'flex', alignItems: 'center', gap: 5,
-                padding: '0.5rem 0.75rem', borderRadius: 'var(--radius-full)',
-                background: 'none', border: '1px solid var(--border)',
-                cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600,
-                color: 'var(--muted)', letterSpacing: '0.06em',
-                fontFamily: 'var(--font-inter)',
-              }}>
-                <Globe size={12} strokeWidth={2} />
-                {locale.toUpperCase()}
-              </button>
-
-              {langOpen && (
-                <>
-                  <div style={{ position: 'fixed', inset: 0, zIndex: 10 }} onClick={() => setLangOpen(false)} />
-                  <div style={{
-                    position: 'absolute', right: 0, top: 'calc(100% + 8px)',
-                    background: 'white', borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--border)', boxShadow: 'var(--shadow-lg)',
-                    overflow: 'hidden', zIndex: 20, minWidth: 148, padding: '0.4rem',
-                  }}>
-                    {LANGS.map(({ code, label, native }) => (
-                      <button key={code} onClick={() => switchLocale(code)} style={{
-                        width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                        padding: '0.6rem 0.875rem', borderRadius: 'var(--radius-sm)',
-                        border: 'none', cursor: 'pointer',
-                        fontSize: '0.8125rem', fontWeight: 500, fontFamily: 'var(--font-inter)',
-                        color: code === locale ? 'var(--ink)' : 'var(--muted)',
-                        background: code === locale ? 'var(--bg)' : 'transparent',
-                        textAlign: 'left',
-                      }}>
-                        {label}
-                        <span style={{ fontSize: '0.7rem', color: 'var(--border2)', fontWeight: 700 }}>{native}</span>
-                      </button>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+            <LanguageSwitcher locale={locale} />
 
             <button style={{
               width: 38, height: 38, borderRadius: 'var(--radius-full)',
@@ -184,20 +128,8 @@ export default function Header({ locale }: { locale: Locale }) {
               </Link>
             ))}
           </nav>
-          <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <div style={{ display: 'flex', gap: 8, marginBottom: 4 }}>
-              {LANGS.map(({ code, native }) => (
-                <button key={code} onClick={() => switchLocale(code)} style={{
-                  padding: '0.5rem 1rem', borderRadius: 'var(--radius-full)',
-                  background: code === locale ? 'var(--ink)' : 'white',
-                  color: code === locale ? 'white' : 'var(--muted)',
-                  border: '1px solid var(--border)', cursor: 'pointer',
-                  fontSize: '0.8125rem', fontWeight: 600, fontFamily: 'var(--font-inter)',
-                }}>
-                  {native}
-                </button>
-              ))}
-            </div>
+          <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <LanguageSwitcher locale={locale} />
             <Link href="/auth/sign-in" onClick={() => setMobileOpen(false)} style={{
               display: 'block', textAlign: 'center', padding: '0.9rem',
               background: 'var(--ink)', color: 'white', borderRadius: 'var(--radius-md)',
