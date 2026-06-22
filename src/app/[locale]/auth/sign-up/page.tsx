@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 export default function SignUpPage({ params }: { params: { locale: string } }) {
   const { locale } = params
@@ -21,7 +21,7 @@ export default function SignUpPage({ params }: { params: { locale: string } }) {
     <div style={{ minHeight: '100vh', background: '#F8F7F4', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1rem' }}>
       <div style={{ width: '100%', maxWidth: 440 }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <Link href={`/${locale}`} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
             <span className="font-display" style={{ fontSize: '1.375rem', letterSpacing: '0.1em', color: '#1A1917' }}>KHAZAR</span>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-gold)', display: 'inline-block' }} />
             <span className="font-display" style={{ fontSize: '1.375rem', letterSpacing: '0.1em', color: '#1A1917' }}>ARTS</span>
@@ -74,7 +74,7 @@ export default function SignUpPage({ params }: { params: { locale: string } }) {
 
           <p style={{ textAlign: 'center', fontSize: '0.9rem', color: '#6B6865', marginTop: '1.5rem' }}>
             Already have an account?{' '}
-            <Link href={`/${locale}/auth/sign-in`} style={{ color: '#1A1917', fontWeight: 500, textDecoration: 'none' }}>Sign in</Link>
+            <Link href={`/auth/sign-in`} style={{ color: '#1A1917', fontWeight: 500, textDecoration: 'none' }}>Sign in</Link>
           </p>
         </div>
       </div>

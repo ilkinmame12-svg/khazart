@@ -4,7 +4,7 @@ import FeaturedCollections from '@/components/artwork/FeaturedCollections'
 import NewWorks from '@/components/artwork/NewWorks'
 import FeaturedArtists from '@/components/artist/FeaturedArtists'
 import AboutSection from '@/components/layout/AboutSection'
-import type { Locale } from '@/i18n/routing'
+
 
 interface HomePageProps {
   params: { locale: Locale }

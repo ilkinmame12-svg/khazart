@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/i18n/routing'
 
@@ -33,7 +33,7 @@ export default async function AboutSection({ artistCount, artworkCount, locale }
             <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, marginBottom: '2rem' }}>
               {t('about_intro_body')}
             </p>
-            <Link href={`/${locale}/apply`} style={{
+            <Link href="/apply" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '0.75rem 1.75rem', borderRadius: 'var(--radius-full)',
               background: 'rgba(255,255,255,0.08)', color: 'white',

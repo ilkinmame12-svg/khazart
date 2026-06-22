@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 export default function SignInPage({ params }: { params: { locale: string } }) {
   const { locale } = params
@@ -16,7 +16,7 @@ export default function SignInPage({ params }: { params: { locale: string } }) {
 
       <div style={{ width: '100%', maxWidth: 420, position: 'relative' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <Link href={`/${locale}`} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 7 }}>
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 7 }}>
             <span className="font-display" style={{ fontSize: '1.375rem', letterSpacing: '0.12em', color: 'var(--ink)' }}>KHAZAR</span>
             <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--gold)', display: 'block' }} />
             <span className="font-display" style={{ fontSize: '1.375rem', letterSpacing: '0.12em', color: 'var(--ink)' }}>ARTS</span>
@@ -57,7 +57,7 @@ export default function SignInPage({ params }: { params: { locale: string } }) {
 
           <p style={{ textAlign: 'center', fontSize: '0.875rem', color: 'var(--muted)', marginTop: '1.5rem' }}>
             No account?{' '}
-            <Link href={`/${locale}/auth/sign-up`} style={{ color: 'var(--ink)', fontWeight: 500, textDecoration: 'none' }}>Create one →</Link>
+            <Link href={`/auth/sign-up`} style={{ color: 'var(--ink)', fontWeight: 500, textDecoration: 'none' }}>Create one →</Link>
           </p>
         </div>
       </div>

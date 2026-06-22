@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import type { Artwork, Locale } from '@/types'
 
@@ -44,7 +44,7 @@ export default function ArtworkCard({
   return (
     <article className="artwork-card">
       <Link
-        href={`/${locale}/artwork/${artwork.id}`}
+        href={`/artwork/${artwork.id}`}
         className="no-underline block"
         aria-label={`${title} — ${artwork.artist?.full_name}`}
       >

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { CheckCircle } from 'lucide-react'
 
 const ARTISTS = [
@@ -28,7 +28,7 @@ export default function ArtistsPage({ params }: { params: { locale: string } }) 
       <div className="content-container section">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px,100%), 1fr))', gap: '1.5rem' }}>
           {ARTISTS.map(artist => (
-            <Link key={artist.id} href={`/${locale}/artist/${artist.id}`} style={{ textDecoration: 'none' }} className="group">
+            <Link key={artist.id} href={`/artist/${artist.id}`} style={{ textDecoration: 'none' }} className="group">
               <article style={{ background: 'white', borderRadius: 12, overflow: 'hidden', border: '1px solid #E2DDD6', transition: 'box-shadow 0.2s ease' }}>
                 {/* Cover */}
                 <div style={{ position: 'relative', height: 140, overflow: 'hidden' }}>

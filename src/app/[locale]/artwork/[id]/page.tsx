@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Heart, Share2, ChevronLeft, ZoomIn, Shield, Truck, RotateCcw, CheckCircle } from 'lucide-react'
 
 const ARTWORKS: Record<string, any> = {
@@ -31,9 +31,9 @@ export default function ArtworkPage({ params }: { params: { locale: string; id: 
       <div style={{ background: 'white', borderBottom: '1px solid #E2DDD6' }}>
         <div className="content-container" style={{ padding: '0.875rem clamp(1.25rem, 4vw, 3.5rem)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.8125rem', color: '#A09D99' }}>
-            <Link href={`/${locale}`} style={{ color: '#A09D99', textDecoration: 'none' }}>Home</Link>
+            <Link href="/" style={{ color: '#A09D99', textDecoration: 'none' }}>Home</Link>
             <span>/</span>
-            <Link href={`/${locale}/marketplace`} style={{ color: '#A09D99', textDecoration: 'none' }}>Catalog</Link>
+            <Link href={`/marketplace`} style={{ color: '#A09D99', textDecoration: 'none' }}>Catalog</Link>
             <span>/</span>
             <span style={{ color: '#1A1917' }}>{artwork.title}</span>
           </div>
@@ -77,7 +77,7 @@ export default function ArtworkPage({ params }: { params: { locale: string; id: 
           {/* RIGHT: Details */}
           <div style={{ position: 'sticky', top: 88 }}>
             {/* Artist */}
-            <Link href={`/${locale}/artist/${artwork.artistId}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.25rem' }}>
+            <Link href={`/artist/${artwork.artistId}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, marginBottom: '1.25rem' }}>
               <img src={artwork.avatarUrl} alt={artwork.artist} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
               <div>
                 <p style={{ fontSize: '0.875rem', fontWeight: 500, color: '#1A1917', margin: 0 }}>
@@ -126,7 +126,7 @@ export default function ArtworkPage({ params }: { params: { locale: string; id: 
             ) : (
               <div style={{ padding: '1rem', background: '#F8F7F4', borderRadius: 8, marginBottom: '2rem', textAlign: 'center' }}>
                 <p style={{ color: '#6B6865', fontSize: '0.875rem', margin: 0 }}>This work has been sold.</p>
-                <Link href={`/${locale}/marketplace`} style={{ fontSize: '0.875rem', color: '#1A1917', fontWeight: 500 }}>Browse available works →</Link>
+                <Link href={`/marketplace`} style={{ fontSize: '0.875rem', color: '#1A1917', fontWeight: 500 }}>Browse available works →</Link>
               </div>
             )}
 
@@ -180,7 +180,7 @@ export default function ArtworkPage({ params }: { params: { locale: string; id: 
               </div>
             </div>
             <p style={{ fontSize: '0.9375rem', lineHeight: 1.8, color: '#6B6865', marginBottom: '1rem' }}>{artwork.bio}</p>
-            <Link href={`/${locale}/artist/${artwork.artistId}`} style={{ fontSize: '0.875rem', fontWeight: 500, color: '#1A1917', textDecoration: 'none' }}>
+            <Link href={`/artist/${artwork.artistId}`} style={{ fontSize: '0.875rem', fontWeight: 500, color: '#1A1917', textDecoration: 'none' }}>
               View artist profile →
             </Link>
           </div>
@@ -191,7 +191,7 @@ export default function ArtworkPage({ params }: { params: { locale: string; id: 
           <h2 className="font-display" style={{ fontSize: '1.75rem', fontWeight: 400, marginBottom: '1.5rem' }}>You may also like</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(200px,100%), 1fr))', gap: '1.25rem' }}>
             {RELATED.map(r => (
-              <Link key={r.id} href={`/${locale}/artwork/${r.id}`} style={{ textDecoration: 'none' }}>
+              <Link key={r.id} href={`/artwork/${r.id}`} style={{ textDecoration: 'none' }}>
                 <div style={{ borderRadius: 8, overflow: 'hidden', aspectRatio: '4/5', background: '#E8E5DF', marginBottom: '0.75rem' }}>
                   <img src={r.img} alt={r.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>

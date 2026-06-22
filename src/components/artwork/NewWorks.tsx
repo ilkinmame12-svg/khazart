@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 
 const DEMO = [
@@ -23,7 +23,7 @@ export default function NewWorks({ artworks, locale, title, viewAll }: { artwork
             <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>Just added</p>
             <h2 className="sec-title">{title}</h2>
           </div>
-          <Link href={`/${locale}/marketplace`} className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Link href="/marketplace" className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             {viewAll} <span style={{ fontSize: '1rem' }}>→</span>
           </Link>
         </div>
@@ -32,7 +32,7 @@ export default function NewWorks({ artworks, locale, title, viewAll }: { artwork
             const sold = a.status === 'sold'
             return (
               <article key={a.id} className="art-card">
-                <Link href={`/${locale}/artwork/${a.id}`} style={{ textDecoration: 'none', display: 'block' }}>
+                <Link href={`/artwork/${a.id}`} style={{ textDecoration: 'none', display: 'block' }}>
                   <div className="art-card-img">
                     <img src={a.img || a.demoImg} alt={a.title} />
                     <div className="art-card-overlay" />

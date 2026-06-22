@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { SlidersHorizontal, Search, X, ChevronDown } from 'lucide-react'
 
 const ALL = [
@@ -149,7 +149,7 @@ export default function MarketplacePage({ params }: { params: { locale: string }
                   const sold = a.status === 'sold'
                   return (
                     <article key={a.id} className="art-card">
-                      <Link href={`/${locale}/artwork/${a.id}`} style={{ textDecoration: 'none', display: 'block' }}>
+                      <Link href={`/artwork/${a.id}`} style={{ textDecoration: 'none', display: 'block' }}>
                         <div className="art-card-img">
                           <img src={a.img} alt={a.title} />
                           <div className="art-card-overlay" />

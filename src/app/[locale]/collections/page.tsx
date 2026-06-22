@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 const COLLECTIONS = [
   { id: '1', slug: 'modern-landscapes', title: 'Modern Landscapes', curator: 'KHazar Arts Editorial', date: 'Spring 2024', count: 24, description: 'Contemporary perspectives on nature and terrain from artists across five continents. A meditation on how painters today negotiate the legacy of landscape tradition.', cover: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=900&q=75', works: ['https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=200', 'https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=200', 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=200'] },
@@ -27,7 +27,7 @@ export default function CollectionsPage({ params }: { params: { locale: string }
       <div className="content-container section">
 
         {/* Hero collection */}
-        <Link href={`/${locale}/collections/${featured.slug}`} style={{ textDecoration: 'none', display: 'block', marginBottom: '3rem' }} className="group">
+        <Link href={`/collections/${featured.slug}`} style={{ textDecoration: 'none', display: 'block', marginBottom: '3rem' }} className="group">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2.5rem', alignItems: 'center', background: 'white', borderRadius: 14, overflow: 'hidden', border: '1px solid #E2DDD6' }}>
             <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
               <img src={featured.cover} alt={featured.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s ease' }} className="group-hover:scale-[1.03]" />
@@ -56,7 +56,7 @@ export default function CollectionsPage({ params }: { params: { locale: string }
         {/* Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '1.5rem' }}>
           {rest.map(col => (
-            <Link key={col.id} href={`/${locale}/collections/${col.slug}`} style={{ textDecoration: 'none' }} className="group">
+            <Link key={col.id} href={`/collections/${col.slug}`} style={{ textDecoration: 'none' }} className="group">
               <article style={{ background: 'white', borderRadius: 10, overflow: 'hidden', border: '1px solid #E2DDD6', transition: 'box-shadow 0.2s ease' }} className="group-hover:shadow-md">
                 <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden' }}>
                   <img src={col.cover} alt={col.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.6s ease' }} className="group-hover:scale-[1.04]" />

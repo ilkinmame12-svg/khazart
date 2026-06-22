@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { CheckCircle, Globe, Instagram, MapPin } from 'lucide-react'
 
 const ARTISTS: Record<string, any> = {
@@ -86,7 +86,7 @@ export default function ArtistPage({ params }: { params: { locale: string; id: s
             <h2 className="font-display" style={{ fontSize: '1.5rem', fontWeight: 400, marginBottom: '1.5rem' }}>Works</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(200px,100%), 1fr))', gap: '1.25rem' }}>
               {artist.works.map((work: any) => (
-                <Link key={work.id} href={`/${locale}/artwork/${work.id}`} style={{ textDecoration: 'none' }}>
+                <Link key={work.id} href={`/artwork/${work.id}`} style={{ textDecoration: 'none' }}>
                   <article className="artwork-card">
                     <div className="artwork-card-image">
                       <img src={work.img} alt={work.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s ease' }} />

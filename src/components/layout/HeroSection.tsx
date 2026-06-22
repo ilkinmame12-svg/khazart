@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Locale } from '@/i18n/routing'
@@ -85,10 +85,10 @@ export default function HeroSection({ locale }: { locale: Locale }) {
             <div className="glass-dark" style={{ padding: '0.6rem 1.25rem', borderRadius: 'var(--radius-full)' }}>
               <span style={{ fontSize: '1.125rem', fontWeight: 700, color: 'white', fontFamily: 'var(--font-inter)' }}>{slide.price}</span>
             </div>
-            <Link href={`/${locale}/marketplace`} className="btn btn-glass" style={{ padding: '0.75rem 1.5rem' }}>
+            <Link href="/marketplace" className="btn btn-glass" style={{ padding: '0.75rem 1.5rem' }}>
               View artwork <ArrowRight size={14} />
             </Link>
-            <Link href={`/${locale}/marketplace`} style={{
+            <Link href="/marketplace" style={{
               textDecoration: 'none', fontSize: '0.8125rem', fontWeight: 500,
               color: 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center', gap: 5,
               transition: 'color 0.2s ease',

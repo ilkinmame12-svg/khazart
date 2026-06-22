@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Upload, CheckCircle } from 'lucide-react'
 
 const MEDIUMS = ['Oil on canvas', 'Acrylic', 'Watercolor', 'Gouache', 'Pastel', 'Charcoal', 'Ink', 'Mixed media', 'Photography', 'Digital', 'Sculpture', 'Ceramics', 'Textile', 'Print', 'Other']
@@ -32,7 +32,7 @@ export default function SubmitPage({ params }: { params: { locale: string } }) {
           <p style={{ color: '#6B6865', lineHeight: 1.7, marginBottom: '2rem' }}>
             Thank you for submitting your work to KHazar Arts. Our curatorial team will review your submission and respond within 5–7 business days.
           </p>
-          <Link href={`/${locale}`} className="btn-primary">Return to homepage</Link>
+          <Link href="/" className="btn-primary">Return to homepage</Link>
         </div>
       </div>
     )
@@ -58,7 +58,7 @@ export default function SubmitPage({ params }: { params: { locale: string } }) {
           <span style={{ fontSize: '1rem' }}>ℹ️</span>
           <p style={{ fontSize: '0.875rem', color: '#92741A', margin: 0, lineHeight: 1.55 }}>
             Only artists with an approved profile can submit works. Don&apos;t have an account yet?{' '}
-            <Link href={`/${locale}/auth/sign-up`} style={{ color: '#92741A', fontWeight: 500 }}>Create one as an artist →</Link>
+            <Link href={`/auth/sign-up`} style={{ color: '#92741A', fontWeight: 500 }}>Create one as an artist →</Link>
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 
 const DEMO = [
@@ -21,14 +21,14 @@ export default function FeaturedArtists({ artists, locale, title, viewAll }: { a
             <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>Selected</p>
             <h2 className="sec-title">{title}</h2>
           </div>
-          <Link href={`/${locale}/artists`} className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Link href="/artists" className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             {viewAll} →
           </Link>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(160px,100%),1fr))', gap: '1.5rem' }}>
           {items.map((a: any) => (
-            <Link key={a.id} href={`/${locale}/artist/${a.id}`} style={{ textDecoration: 'none' }} className="group">
+            <Link key={a.id} href={`/artist/${a.id}`} style={{ textDecoration: 'none' }} className="group">
               <article style={{ textAlign: 'center' }}>
                 {/* Avatar with ring */}
                 <div style={{

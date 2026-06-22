@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 
 const DEMO = [
@@ -18,14 +18,14 @@ export default function FeaturedCollections({ collections, locale, title, viewAl
             <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>Curated</p>
             <h2 className="sec-title">{title}</h2>
           </div>
-          <Link href={`/${locale}/collections`} className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Link href="/collections" className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             {viewAll} →
           </Link>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }} className="md:grid-cols-3 grid-cols-1">
           {items.map((col: any, i: number) => (
-            <Link key={col.id} href={`/${locale}/collections/${col.slug}`} style={{ textDecoration: 'none' }} className="group">
+            <Link key={col.id} href={`/collections/${col.slug}`} style={{ textDecoration: 'none' }} className="group">
               <article style={{
                 borderRadius: 'var(--radius-xl)', overflow: 'hidden',
                 position: 'relative',

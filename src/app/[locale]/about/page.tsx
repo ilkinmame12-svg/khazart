@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 export default function AboutPage({ params }: { params: { locale: string } }) {
   const { locale } = params
@@ -63,10 +63,10 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
           <h2 className="font-display" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 400, color: 'white', marginBottom: '1rem', lineHeight: 1.1 }}>Ready to start your collection?</h2>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', marginBottom: '2rem' }}>Browse curated works or apply as an artist.</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href={`/${locale}/marketplace`} style={{ padding: '0.875rem 2rem', background: 'white', color: '#1A1917', textDecoration: 'none', borderRadius: 8, fontWeight: 500, fontSize: '0.9375rem', fontFamily: 'var(--font-inter)' }}>
+            <Link href={`/marketplace`} style={{ padding: '0.875rem 2rem', background: 'white', color: '#1A1917', textDecoration: 'none', borderRadius: 8, fontWeight: 500, fontSize: '0.9375rem', fontFamily: 'var(--font-inter)' }}>
               Browse catalog
             </Link>
-            <Link href={`/${locale}/apply`} style={{ padding: '0.875rem 2rem', background: 'transparent', color: 'white', textDecoration: 'none', borderRadius: 8, fontWeight: 500, fontSize: '0.9375rem', border: '1px solid rgba(255,255,255,0.25)', fontFamily: 'var(--font-inter)' }}>
+            <Link href={`/apply`} style={{ padding: '0.875rem 2rem', background: 'transparent', color: 'white', textDecoration: 'none', borderRadius: 8, fontWeight: 500, fontSize: '0.9375rem', border: '1px solid rgba(255,255,255,0.25)', fontFamily: 'var(--font-inter)' }}>
               Apply as artist
             </Link>
           </div>
