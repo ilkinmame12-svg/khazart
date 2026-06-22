@@ -5,7 +5,9 @@
     "artists": "Художники",
     "about": "О нас",
     "sign_in": "Войти",
-    "submit_work": "Подать работу"
+    "submit_work": "Подать работу",
+    "search": "Поиск работ",
+    "sign_in_short": "Войти"
   },
   "home": {
     "hero_eyebrow": "Курируемое международное искусство",
@@ -162,5 +164,29 @@
     "textile": "Текстиль",
     "ceramics": "Керамика",
     "mixed_media": "Смешанная техника"
+  },
+  "ui": {
+    "just_added": "Только добавлено",
+    "curated": "Куратор отбор",
+    "selected": "Избранные",
+    "featured": "Рекомендуем",
+    "sold": "Продано",
+    "search_placeholder": "Поиск работ",
+    "sign_in": "Войти",
+    "view_artwork": "Смотреть работу",
+    "available": "В наличии",
+    "collection_label": "Коллекция",
+    "works_count": "работ",
+    "verified": "Верифицирован",
+    "filter_label": "Фильтры",
+    "reset": "Сбросить",
+    "price_max": "Макс. цена",
+    "show_sold": "Показать проданные",
+    "no_results": "Работы не найдены",
+    "no_results_hint": "Попробуйте изменить фильтры",
+    "about_platform": "О платформе",
+    "apply_artist": "Подать заявку как художник",
+    "browse_catalog": "Смотреть каталог",
+    "scroll": "Прокрутите для просмотра"
   }
 }

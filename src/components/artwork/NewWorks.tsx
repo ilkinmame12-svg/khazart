@@ -1,3 +1,5 @@
+'use client'
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 
@@ -13,6 +15,7 @@ const DEMO = [
 ]
 
 export default function NewWorks({ artworks, locale, title, viewAll }: { artworks: any[], locale: Locale, title: string, viewAll: string }) {
+  const t = useTranslations('ui')
   const items = artworks.length > 0 ? artworks : DEMO
 
   return (
@@ -20,11 +23,11 @@ export default function NewWorks({ artworks, locale, title, viewAll }: { artwork
       <div className="wrap">
         <div className="sec-head">
           <div>
-            <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>Just added</p>
+            <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>{t('just_added')}</p>
             <h2 className="sec-title">{title}</h2>
           </div>
           <Link href="/marketplace" className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            {viewAll} <span style={{ fontSize: '1rem' }}>→</span>
+            {viewAll} →
           </Link>
         </div>
         <div className="art-grid">
@@ -36,18 +39,8 @@ export default function NewWorks({ artworks, locale, title, viewAll }: { artwork
                   <div className="art-card-img">
                     <img src={a.img || a.demoImg} alt={a.title} />
                     <div className="art-card-overlay" />
-                    {a.featured && !sold && <span className="badge badge-gold">Featured</span>}
-                    {sold && <span className="badge badge-sold">Sold</span>}
-                    {/* Quick buy hover button */}
-                    <div style={{
-                      position: 'absolute', bottom: '1rem', left: '50%', transform: 'translateX(-50%)',
-                      opacity: 0, transition: 'opacity 0.3s ease',
-                      pointerEvents: 'none',
-                    }} className="art-card-quick">
-                      <span style={{ padding: '0.5rem 1.25rem', background: 'white', borderRadius: 'var(--radius-full)', fontSize: '0.8125rem', fontWeight: 600, color: 'var(--ink)', whiteSpace: 'nowrap' }}>
-                        View work
-                      </span>
-                    </div>
+                    {a.featured && !sold && <span className="badge badge-gold">{t('featured')}</span>}
+                    {sold && <span className="badge badge-sold">{t('sold')}</span>}
                   </div>
                   <div className="art-card-body">
                     <p className="art-card-artist">
@@ -59,7 +52,7 @@ export default function NewWorks({ artworks, locale, title, viewAll }: { artwork
                       {a.year}{a.h ? ` · ${a.h} × ${a.w} cm` : ''}
                     </p>
                     {sold
-                      ? <p className="art-card-price-sold">Sold</p>
+                      ? <p className="art-card-price-sold">{t('sold')}</p>
                       : <p className="art-card-price">${(a.price_usd ? a.price_usd/100 : a.price).toLocaleString()}</p>
                     }
                   </div>
@@ -69,7 +62,6 @@ export default function NewWorks({ artworks, locale, title, viewAll }: { artwork
           })}
         </div>
       </div>
-      <style>{`.art-card:hover .art-card-quick { opacity: 1 !important; pointer-events: auto !important; }`}</style>
     </section>
   )
 }

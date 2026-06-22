@@ -44,14 +44,12 @@ export default function Header({ locale }: { locale: Locale }) {
       }}>
         <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: 68 }}>
 
-          {/* Logo */}
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 7, marginRight: 'auto' }}>
             <span className="font-display" style={{ fontSize: '1.375rem', letterSpacing: '0.12em', color: 'var(--ink)', fontWeight: 400 }}>KHAZAR</span>
             <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--gold)', display: 'block', flexShrink: 0 }} />
             <span className="font-display" style={{ fontSize: '1.375rem', letterSpacing: '0.12em', color: 'var(--ink)', fontWeight: 400 }}>ARTS</span>
           </Link>
 
-          {/* Desktop nav */}
           <nav style={{ display: 'flex', gap: '0.25rem', marginRight: '1.5rem' }} className="hidden md:flex">
             {nav.map(({ href, label }) => (
               <Link key={href} href={href} style={{
@@ -67,7 +65,6 @@ export default function Header({ locale }: { locale: Locale }) {
             ))}
           </nav>
 
-          {/* Right */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }} className="hidden md:flex">
             <button style={{
               display: 'flex', alignItems: 'center', gap: 8,
@@ -77,7 +74,7 @@ export default function Header({ locale }: { locale: Locale }) {
               fontFamily: 'var(--font-inter)',
             }}>
               <Search size={13} strokeWidth={2} />
-              Search artworks
+              {t('search')}
             </button>
 
             <LanguageSwitcher locale={locale} />
@@ -96,11 +93,10 @@ export default function Header({ locale }: { locale: Locale }) {
               background: 'var(--ink)', color: 'white',
               borderRadius: 'var(--radius-full)', fontSize: '0.8125rem', fontWeight: 500,
             }}>
-              Sign in
+              {t('sign_in_short')}
             </Link>
           </div>
 
-          {/* Mobile toggle */}
           <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)} style={{
             background: 'none', border: 'none', cursor: 'pointer', color: 'var(--ink)', padding: '0.5rem',
           }}>
@@ -109,7 +105,6 @@ export default function Header({ locale }: { locale: Locale }) {
         </div>
       </header>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div style={{
           position: 'fixed', inset: 0, zIndex: 99,
@@ -135,7 +130,7 @@ export default function Header({ locale }: { locale: Locale }) {
               background: 'var(--ink)', color: 'white', borderRadius: 'var(--radius-md)',
               textDecoration: 'none', fontWeight: 500, fontSize: '0.9375rem',
             }}>
-              Sign in
+              {t('sign_in_short')}
             </Link>
           </div>
         </div>

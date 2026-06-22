@@ -5,7 +5,9 @@
     "artists": "Rəssamlar",
     "about": "Haqqımızda",
     "sign_in": "Daxil ol",
-    "submit_work": "Əsər göndər"
+    "submit_work": "Əsər göndər",
+    "search": "Əsər axtar",
+    "sign_in_short": "Daxil ol"
   },
   "home": {
     "hero_eyebrow": "Kurasiyalı beynəlxalq sənət",
@@ -162,5 +164,29 @@
     "textile": "Tekstil",
     "ceramics": "Keramika",
     "mixed_media": "Qarışıq texnika"
+  },
+  "ui": {
+    "just_added": "Yeni əlavə edildi",
+    "curated": "Seçilmiş",
+    "selected": "Seçilmişlər",
+    "featured": "Önəmli",
+    "sold": "Satılıb",
+    "search_placeholder": "Əsər axtar",
+    "sign_in": "Daxil ol",
+    "view_artwork": "Əsərə bax",
+    "available": "Mövcuddur",
+    "collection_label": "Kolleksiya",
+    "works_count": "əsər",
+    "verified": "Təsdiqlənmiş",
+    "filter_label": "Filtrlər",
+    "reset": "Sıfırla",
+    "price_max": "Maks qiymət",
+    "show_sold": "Satılmışları göstər",
+    "no_results": "Əsər tapılmadı",
+    "no_results_hint": "Filtrləri dəyişdirməyə çalışın",
+    "about_platform": "Platforma haqqında",
+    "apply_artist": "Rəssam kimi müraciət et",
+    "browse_catalog": "Kataloqa bax",
+    "scroll": "Kəşf etmək üçün sürüşdürün"
   }
 }

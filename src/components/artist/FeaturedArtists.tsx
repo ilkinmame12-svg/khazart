@@ -1,3 +1,5 @@
+'use client'
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 
@@ -11,6 +13,7 @@ const DEMO = [
 ]
 
 export default function FeaturedArtists({ artists, locale, title, viewAll }: { artists: any[], locale: Locale, title: string, viewAll: string }) {
+  const t = useTranslations('ui')
   const items = artists.length > 0 ? artists : DEMO
 
   return (
@@ -18,43 +21,23 @@ export default function FeaturedArtists({ artists, locale, title, viewAll }: { a
       <div className="wrap">
         <div className="sec-head">
           <div>
-            <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>Selected</p>
+            <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>{t('selected')}</p>
             <h2 className="sec-title">{title}</h2>
           </div>
           <Link href="/artists" className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             {viewAll} →
           </Link>
         </div>
-
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(160px,100%),1fr))', gap: '1.5rem' }}>
           {items.map((a: any) => (
             <Link key={a.id} href={`/artist/${a.id}`} style={{ textDecoration: 'none' }} className="group">
               <article style={{ textAlign: 'center' }}>
-                {/* Avatar with ring */}
-                <div style={{
-                  position: 'relative', width: 100, height: 100,
-                  margin: '0 auto 1rem',
-                }}>
-                  <div style={{
-                    position: 'absolute', inset: -3,
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, var(--gold), var(--gold2), transparent)',
-                    opacity: 0, transition: 'opacity 0.3s ease',
-                  }} className="group-hover:opacity-100" />
-                  <div style={{
-                    width: '100%', height: '100%', borderRadius: '50%',
-                    overflow: 'hidden', border: '3px solid white',
-                    boxShadow: 'var(--shadow-md)', background: 'var(--bg2)',
-                    position: 'relative',
-                  }}>
-                    <img src={a.avatar_url} alt={a.full_name} style={{
-                      width: '100%', height: '100%', objectFit: 'cover',
-                      transition: 'transform 0.5s ease',
-                    }} className="group-hover:scale-110" />
+                <div style={{ position: 'relative', width: 100, height: 100, margin: '0 auto 1rem' }}>
+                  <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', border: '3px solid white', boxShadow: 'var(--shadow-md)', background: 'var(--bg2)' }}>
+                    <img src={a.avatar_url} alt={a.full_name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="group-hover:scale-110" />
                   </div>
                 </div>
-
-                <h3 className="font-display" style={{ fontSize: '1.0625rem', fontWeight: 400, color: 'var(--ink)', marginBottom: '0.2rem', transition: 'color 0.2s' }}>
+                <h3 className="font-display" style={{ fontSize: '1.0625rem', fontWeight: 400, color: 'var(--ink)', marginBottom: '0.2rem' }}>
                   {a.full_name}
                 </h3>
                 <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.3rem' }}>
@@ -62,7 +45,7 @@ export default function FeaturedArtists({ artists, locale, title, viewAll }: { a
                 </p>
                 {a.verified && (
                   <span className="label" style={{ color: 'var(--gold)', fontSize: '0.5625rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 3 }}>
-                    ✦ Verified
+                    ✦ {t('verified')}
                   </span>
                 )}
               </article>

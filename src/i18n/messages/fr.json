@@ -5,7 +5,9 @@
     "artists": "Artistes",
     "about": "À propos",
     "sign_in": "Se connecter",
-    "submit_work": "Soumettre une œuvre"
+    "submit_work": "Soumettre une œuvre",
+    "search": "Rechercher",
+    "sign_in_short": "Se connecter"
   },
   "home": {
     "hero_eyebrow": "Art international sélectionné",
@@ -162,5 +164,29 @@
     "textile": "Textile",
     "ceramics": "Céramique",
     "mixed_media": "Techniques mixtes"
+  },
+  "ui": {
+    "just_added": "Récemment ajouté",
+    "curated": "Sélectionné",
+    "selected": "En vedette",
+    "featured": "À la une",
+    "sold": "Vendu",
+    "search_placeholder": "Rechercher des œuvres",
+    "sign_in": "Se connecter",
+    "view_artwork": "Voir l'œuvre",
+    "available": "Disponible",
+    "collection_label": "Collection",
+    "works_count": "œuvres",
+    "verified": "Vérifié",
+    "filter_label": "Filtres",
+    "reset": "Réinitialiser",
+    "price_max": "Prix max",
+    "show_sold": "Afficher les vendus",
+    "no_results": "Aucune œuvre trouvée",
+    "no_results_hint": "Essayez d'ajuster vos filtres",
+    "about_platform": "À propos",
+    "apply_artist": "Candidater comme artiste",
+    "browse_catalog": "Parcourir le catalogue",
+    "scroll": "Faites défiler pour explorer"
   }
 }

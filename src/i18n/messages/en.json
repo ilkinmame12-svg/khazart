@@ -5,7 +5,9 @@
     "artists": "Artists",
     "about": "About",
     "sign_in": "Sign in",
-    "submit_work": "Submit work"
+    "submit_work": "Submit work",
+    "search": "Search artworks",
+    "sign_in_short": "Sign in"
   },
   "home": {
     "hero_eyebrow": "Curated international art",
@@ -162,5 +164,29 @@
     "textile": "Textile",
     "ceramics": "Ceramics",
     "mixed_media": "Mixed media"
+  },
+  "ui": {
+    "just_added": "Just added",
+    "curated": "Curated",
+    "selected": "Selected",
+    "featured": "Featured",
+    "sold": "Sold",
+    "search_placeholder": "Search artworks",
+    "sign_in": "Sign in",
+    "view_artwork": "View artwork",
+    "available": "Available",
+    "collection_label": "Collection",
+    "works_count": "works",
+    "verified": "Verified",
+    "filter_label": "Filters",
+    "reset": "Reset",
+    "price_max": "Max price",
+    "show_sold": "Show sold works",
+    "no_results": "No works found",
+    "no_results_hint": "Try adjusting your filters",
+    "about_platform": "About the platform",
+    "apply_artist": "Apply as artist",
+    "browse_catalog": "Browse catalog",
+    "scroll": "Scroll to explore"
   }
 }
