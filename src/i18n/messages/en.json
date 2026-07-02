@@ -73,7 +73,8 @@
     "nationality": "Nationality",
     "based_in": "Based in",
     "member_since": "Member since",
-    "view_all_works": "View all works"
+    "view_all_works": "View all works",
+    "available": "available"
   },
   "auth": {
     "sign_in": "Sign in",
@@ -174,7 +175,7 @@
     "search_placeholder": "Search artworks",
     "sign_in": "Sign in",
     "view_artwork": "View artwork",
-    "available": "Available",
+    "available": "available",
     "collection_label": "Collection",
     "works_count": "works",
     "verified": "Verified",

@@ -73,7 +73,8 @@
     "nationality": "Milliyyət",
     "based_in": "Yaşadığı yer",
     "member_since": "Üzv olduğu tarix",
-    "view_all_works": "Bütün əsərlərə bax"
+    "view_all_works": "Bütün əsərlərə bax",
+    "available": "mövcuddur"
   },
   "auth": {
     "sign_in": "Daxil ol",
@@ -174,7 +175,7 @@
     "search_placeholder": "Əsər axtar",
     "sign_in": "Daxil ol",
     "view_artwork": "Əsərə bax",
-    "available": "Mövcuddur",
+    "available": "mövcuddur",
     "collection_label": "Kolleksiya",
     "works_count": "əsər",
     "verified": "Təsdiqlənmiş",

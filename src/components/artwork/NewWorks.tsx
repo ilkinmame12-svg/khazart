@@ -1,7 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
-import type { Locale } from '@/i18n/routing'
 
 const DEMO = [
   { id:'1', title:'Golden Hour', artist:'Elena Vasquez', verified:true, price:4800, year:2024, w:90, h:120, status:'available', featured:false, img:'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=75' },
@@ -14,47 +13,41 @@ const DEMO = [
   { id:'8', title:'Horizon Study', artist:'Pavel Nowak', verified:true, price:3900, year:2023, w:120, h:80, status:'available', featured:false, img:'https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=600&q=75' },
 ]
 
-export default function NewWorks({ artworks, locale, title, viewAll }: { artworks: any[], locale: Locale, title: string, viewAll: string }) {
+export default function NewWorks({ artworks, title, viewAll }: { artworks:any[], title:string, viewAll:string }) {
   const t = useTranslations('ui')
   const items = artworks.length > 0 ? artworks : DEMO
 
   return (
-    <section className="section" style={{ background: 'white' }}>
+    <section className="sec" style={{ background:'#fff' }}>
       <div className="wrap">
         <div className="sec-head">
           <div>
-            <p className="label" style={{ color: 'var(--gold)', marginBottom: 8, fontSize: '0.625rem' }}>{t('just_added')}</p>
+            <p className="sec-eyebrow">{t('just_added')}</p>
             <h2 className="sec-title">{title}</h2>
           </div>
-          <Link href="/marketplace" className="btn btn-ghost" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <Link href="/marketplace" className="btn-base btn-ghost" style={{ display:'flex', alignItems:'center', gap:5 }}>
             {viewAll} →
           </Link>
         </div>
+
         <div className="art-grid">
-          {items.map((a: any) => {
+          {items.map((a:any) => {
             const sold = a.status === 'sold'
+            const price = a.price_usd ? a.price_usd/100 : a.price
             return (
-              <article key={a.id} className="art-card">
-                <Link href={`/artwork/${a.id}`} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div className="art-card-img">
+              <article key={a.id} className="card-wrap">
+                <Link href={`/artwork/${a.id}`} style={{ textDecoration:'none', display:'block' }}>
+                  <div className="card-img">
                     <img src={a.img || a.demoImg} alt={a.title} />
-                    <div className="art-card-overlay" />
+                    <div className="card-overlay" />
                     {a.featured && !sold && <span className="badge badge-gold">{t('featured')}</span>}
-                    {sold && <span className="badge badge-sold">{t('sold')}</span>}
+                    {sold && <span className="badge badge-dark">{t('sold')}</span>}
                   </div>
-                  <div className="art-card-body">
-                    <p className="art-card-artist">
-                      {a.artist || a.full_name}
-                      {a.verified && <span style={{ color: 'var(--gold)', marginLeft: 4 }}>✦</span>}
-                    </p>
-                    <h3 className="art-card-title">{a.title}</h3>
-                    <p style={{ fontSize: '0.78rem', color: 'var(--muted)', marginBottom: '0.3rem' }}>
-                      {a.year}{a.h ? ` · ${a.h} × ${a.w} cm` : ''}
-                    </p>
-                    {sold
-                      ? <p className="art-card-price-sold">{t('sold')}</p>
-                      : <p className="art-card-price">${(a.price_usd ? a.price_usd/100 : a.price).toLocaleString()}</p>
-                    }
+                  <div style={{ paddingTop:'.75rem' }}>
+                    <p className="card-artist">{a.artist || a.full_name}{a.verified && <span style={{ color:'var(--gold)', marginLeft:4 }}>✦</span>}</p>
+                    <h3 className="card-title">{a.title}</h3>
+                    <p className="card-meta">{a.year}{a.h ? ` · ${a.h}×${a.w} cm` : ''}</p>
+                    {sold ? <p className="card-sold">{t('sold')}</p> : <p className="card-price">${price.toLocaleString()}</p>}
                   </div>
                 </Link>
               </article>

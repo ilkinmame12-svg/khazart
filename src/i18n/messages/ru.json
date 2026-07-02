@@ -73,7 +73,8 @@
     "nationality": "Национальность",
     "based_in": "Проживает в",
     "member_since": "Участник с",
-    "view_all_works": "Все работы"
+    "view_all_works": "Все работы",
+    "available": "в наличии"
   },
   "auth": {
     "sign_in": "Войти",
@@ -174,7 +175,7 @@
     "search_placeholder": "Поиск работ",
     "sign_in": "Войти",
     "view_artwork": "Смотреть работу",
-    "available": "В наличии",
+    "available": "в наличии",
     "collection_label": "Коллекция",
     "works_count": "работ",
     "verified": "Верифицирован",
